@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -41,10 +42,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gz2-ft-WOZ">
-                                <rect key="frame" x="24" y="158" width="327" height="489"/>
+                                <rect key="frame" x="24" y="158" width="327" height="437"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="play" translatesAutoresizingMaskIntoConstraints="NO" id="c3J-3U-OAg">
-                                        <rect key="frame" x="128" y="209" width="70" height="70"/>
+                                        <rect key="frame" x="128" y="183.5" width="70" height="70"/>
                                         <color key="backgroundColor" white="0.43858506944444442" alpha="0.60086686643835618" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -68,21 +69,33 @@
                                     <outletCollection property="gestureRecognizers" destination="2M9-y7-WoL" appends="YES" id="LB0-iu-XUc"/>
                                 </connections>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VBY-Pp-muJ">
+                                <rect key="frame" x="301" y="617" width="50" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="61d-oE-0c3"/>
+                                </constraints>
+                                <state key="normal" title="Trim"/>
+                                <connections>
+                                    <action selector="trimButtonTapped:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="3oe-YP-Evz"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="xXz-O0-35H" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="24" id="18c-v3-enh"/>
                             <constraint firstAttribute="trailing" secondItem="xXz-O0-35H" secondAttribute="trailing" constant="24" id="54G-w6-10V"/>
-                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="gz2-ft-WOZ" secondAttribute="bottom" constant="20" id="5T2-Q8-SsU"/>
                             <constraint firstItem="bgU-d7-KE6" firstAttribute="top" secondItem="xXz-O0-35H" secondAttribute="bottom" constant="8" id="69f-iw-oMH"/>
                             <constraint firstItem="bgU-d7-KE6" firstAttribute="leading" secondItem="xXz-O0-35H" secondAttribute="leading" id="8mT-kI-Vgq"/>
                             <constraint firstItem="xXz-O0-35H" firstAttribute="top" secondItem="ygT-rN-mrN" secondAttribute="bottom" constant="8" id="Cl7-ad-xCT"/>
                             <constraint firstItem="ygT-rN-mrN" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="20" id="GDG-kg-g3o"/>
                             <constraint firstItem="gz2-ft-WOZ" firstAttribute="trailing" secondItem="xXz-O0-35H" secondAttribute="trailing" id="H6c-y0-xzn"/>
                             <constraint firstItem="gz2-ft-WOZ" firstAttribute="top" secondItem="bgU-d7-KE6" secondAttribute="bottom" constant="20" id="LDt-XE-Kn7"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="VBY-Pp-muJ" secondAttribute="bottom" constant="20" id="Tgu-kG-zfi"/>
                             <constraint firstItem="gz2-ft-WOZ" firstAttribute="leading" secondItem="xXz-O0-35H" secondAttribute="leading" id="bAR-jl-auW"/>
+                            <constraint firstItem="VBY-Pp-muJ" firstAttribute="top" secondItem="gz2-ft-WOZ" secondAttribute="bottom" constant="22" id="cAr-pC-tTa"/>
                             <constraint firstItem="ygT-rN-mrN" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="eK4-M1-6Bg"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="VBY-Pp-muJ" secondAttribute="trailing" constant="8" id="lvC-NE-ggQ"/>
                         </constraints>
                     </view>
                     <connections>

@@ -438,6 +438,16 @@ public class ABVideoRangeSlider: UIView, UIGestureRecognizerDelegate {
         layoutSubviews()
     }
     
+    public func trim(_ handler: @escaping (_ url: URL, _ error: Error?) -> Void) {
+        let startSeconds = self.secondsFromValue(value: self.startPercentage)
+        let endSeconds = self.secondsFromValue(value: self.endPercentage)
+        let duration = endSeconds - startSeconds
+        
+        ABVideoHelper.trimVideo(atURL: self.videoURL, withStartTime: startSeconds, duration: duration) { outputURL, error in
+            handler(outputURL, error)
+        }
+    }
+    
     // MARK: - Drag Functions Helpers
     private func positionFromValue(value: CGFloat) -> CGFloat{
         let position = value * self.frame.size.width / 100

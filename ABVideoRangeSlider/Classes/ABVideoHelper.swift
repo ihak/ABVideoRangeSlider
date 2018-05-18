@@ -30,4 +30,35 @@ class ABVideoHelper: NSObject {
         return CMTimeGetSeconds(source.duration)
     }
     
+    static func trimVideo(atURL url:URL, withStartTime start: Double, duration: Double, handler: @escaping (_ outputUrl: URL, _ error: Error?)-> Void) {
+        let asset = AVURLAsset(url: url)
+        let exportSession = AVAssetExportSession.init(asset: asset, presetName: AVAssetExportPresetHighestQuality)!
+        let outputURL = URL(fileURLWithPath: NSTemporaryDirectory() + "output.mp4")
+        
+        // Remove existing one
+        do {
+            try FileManager.default.removeItem(at: outputURL)
+        }
+        catch {
+        }
+        
+        exportSession.outputURL = outputURL
+        exportSession.shouldOptimizeForNetworkUse = true
+        exportSession.outputFileType = AVFileTypeMPEG4
+        let start = CMTime(seconds: start, preferredTimescale: CMTimeScale(NSEC_PER_SEC))
+        let duration = CMTime(seconds: duration, preferredTimescale: CMTimeScale(NSEC_PER_SEC))
+        let range = CMTimeRangeMake(start, duration)
+        exportSession.timeRange = range
+        exportSession.exportAsynchronously {
+            switch(exportSession.status) {
+            case .completed:
+                handler(outputURL, nil)
+            case .failed:
+                handler(outputURL, exportSession.error)
+            case .cancelled:
+                handler(outputURL, exportSession.error)
+            default: break
+            }
+        }
+    }
 }

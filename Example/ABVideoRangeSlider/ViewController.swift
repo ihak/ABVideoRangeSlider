@@ -30,6 +30,10 @@ class ViewController: UIViewController, ABVideoRangeSliderDelegate {
     }
     
     func setupPlayer() {
+        guard player == nil else {
+            return
+        }
+        
         player = AVPlayer(url: URL(fileURLWithPath: path!))
         let layer = AVPlayerLayer(player: player)
         layer.backgroundColor = UIColor.clear.cgColor
@@ -50,15 +54,6 @@ class ViewController: UIViewController, ABVideoRangeSliderDelegate {
         // Add time observer
         timeObserverToken = player.addPeriodicTimeObserver(forInterval: interval, queue: mainQueue) { time in
             self.videoRangeSlider.updateProgressIndicator(seconds: CMTimeGetSeconds(time))
-        }
-    }
-    
-    @IBAction func playVideo(_ sender: Any) {
-        let player = AVPlayer(url: URL(fileURLWithPath: path!))
-        let playerViewController = AVPlayerViewController()
-        playerViewController.player = player
-        self.present(playerViewController, animated: true) {
-            playerViewController.player!.play()
         }
     }
     
@@ -132,6 +127,23 @@ class ViewController: UIViewController, ABVideoRangeSliderDelegate {
         }
     }
     
+    
+    @IBAction func trimButtonTapped(_ sender: Any) {
+        videoRangeSlider.trim { (url, error) in
+            if let error = error {
+                print(error.localizedDescription)
+                return
+            }
+            
+            let player = AVPlayer(url: url)
+            let playerViewController = AVPlayerViewController()
+            playerViewController.player = player
+            self.present(playerViewController, animated: true) {
+                playerViewController.player!.play()
+            }
+        }
+    }
+    
     // MARK: ABVideoRangeSlider Delegate - Returns time in seconds
     
     func didChangeValue(videoRangeSlider: ABVideoRangeSlider, startTime: Float64, endTime: Float64) {
@@ -153,5 +165,4 @@ class ViewController: UIViewController, ABVideoRangeSliderDelegate {
         print("position of indicator: \(position)")
         player.seek(to: CMTimeMakeWithSeconds(position, 600))
     }
-
 }
