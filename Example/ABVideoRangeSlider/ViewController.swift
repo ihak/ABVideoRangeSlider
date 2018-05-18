@@ -19,7 +19,7 @@ class ViewController: UIViewController, ABVideoRangeSliderDelegate {
     @IBOutlet weak var playerView: UIView!
     
     @IBOutlet weak var playPauseButtonImage: UIImageView!
-    
+    var didSetVideoRangeSlider = false
     var player: AVPlayer!
     var timeObserverToken: Any?
     
@@ -58,6 +58,10 @@ class ViewController: UIViewController, ABVideoRangeSliderDelegate {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        guard didSetVideoRangeSlider == false else {
+            return
+        }
+        
         videoRangeSlider.setVideoURL(videoURL: URL(fileURLWithPath: path!))
         videoRangeSlider.delegate = self
         videoRangeSlider.minSpace = 60.0
@@ -104,6 +108,7 @@ class ViewController: UIViewController, ABVideoRangeSliderDelegate {
         videoRangeSlider.startTimeView.marginLeft = 2.0
         videoRangeSlider.startTimeView.marginRight = 2.0
         videoRangeSlider.startTimeView.timeLabel.textColor = .white
+        didSetVideoRangeSlider = true
     }
     
     override func viewDidAppear(_ animated: Bool) {
