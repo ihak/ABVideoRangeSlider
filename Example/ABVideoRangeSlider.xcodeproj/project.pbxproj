@@ -217,6 +217,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -295,7 +296,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-ABVideoRangeSlider_Example/Pods-ABVideoRangeSlider_Example-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-ABVideoRangeSlider_Example/Pods-ABVideoRangeSlider_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/ABVideoRangeSlider/ABVideoRangeSlider.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -304,7 +305,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ABVideoRangeSlider_Example/Pods-ABVideoRangeSlider_Example-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ABVideoRangeSlider_Example/Pods-ABVideoRangeSlider_Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -450,7 +451,7 @@
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ihak.ABVideoRangeSlider-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -465,7 +466,7 @@
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ihak.ABVideoRangeSlider-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
@@ -474,10 +475,7 @@
 			baseConfigurationReference = D42806DB468F56C07D2DB846 /* Pods-ABVideoRangeSlider_Tests.debug.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = Q6H55AY6YP;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -486,7 +484,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -495,15 +493,12 @@
 			baseConfigurationReference = B211C6C894191DBDEC99740D /* Pods-ABVideoRangeSlider_Tests.release.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = Q6H55AY6YP;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};

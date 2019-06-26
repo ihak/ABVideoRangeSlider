@@ -34,7 +34,7 @@ class ViewController: UIViewController, ABVideoRangeSliderDelegate {
         let layer = AVPlayerLayer(player: player)
         layer.backgroundColor = UIColor.clear.cgColor
         layer.frame = playerView.bounds
-        layer.videoGravity = AVLayerVideoGravityResizeAspect
+        layer.videoGravity = .resizeAspect
         playerView.layer.insertSublayer(layer, at: 0)
         
         addPeriodicTimeObserver()
@@ -151,7 +151,7 @@ class ViewController: UIViewController, ABVideoRangeSliderDelegate {
     
     func indicatorDidChangePosition(videoRangeSlider: ABVideoRangeSlider, position: Float64) {
         print("position of indicator: \(position)")
-        player.seek(to: CMTimeMakeWithSeconds(position, 600))
+        player.seek(to: CMTimeMakeWithSeconds(position, preferredTimescale: 600))
     }
 
 }
