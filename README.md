@@ -5,7 +5,7 @@
 [![License](https://img.shields.io/cocoapods/l/ABVideoRangeSlider.svg?style=flat)](http://cocoapods.org/pods/ABVideoRangeSlider)
 [![Platform](https://img.shields.io/cocoapods/p/ABVideoRangeSlider.svg?style=flat)](http://cocoapods.org/pods/ABVideoRangeSlider)
 
-Customizable Video Range Slider for trimming videos written in Swift 3.
+Customizable Video Range Slider for trimming videos written in Swift 4.2.
 
 ![Portrait](https://raw.githubusercontent.com/AppsBoulevard/ABVideoRangeSlider/master/Screenshots/Portrait.png "Portrait")
 
